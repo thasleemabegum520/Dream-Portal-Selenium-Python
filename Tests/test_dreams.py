@@ -1,5 +1,3 @@
-from selenium import webdriver
-
 from pages.dreams_diary import DreamsDiary
 from pages.dreams_total import DreamsTotal
 from pages.mydreams import LoadingAnimation

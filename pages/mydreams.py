@@ -16,11 +16,11 @@ class LoadingAnimation:
         assert self.logo.is_displayed(), "logo not displayed"
 
     def content_button(self):
-        assert self.content and self.my_dreams,"Missing content or mydreams button"
+        assert self.content.is_displayed(), "Main content is not displayed"
+        assert self.my_dreams.is_displayed(), "My Dreams button is not displayed"
 
     def diary_total_tab(self):
         self.my_dreams.click()
-        parent = self.driver.current_window_handle
         self.wait.until(EC.number_of_windows_to_be(3))
         # test dreams-dairy and dreams-total active windows
         windows = self.driver.window_handles

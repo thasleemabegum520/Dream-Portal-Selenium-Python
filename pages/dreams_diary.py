@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
-
-from pages.mydreams import *
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class DreamsDiary:
     def __init__(self,driver):
@@ -23,12 +22,8 @@ class DreamsDiary:
 
 
     def num_of_dreams(self):
-        num_of_dreams = 0
-        self.dream_entries = self.driver.find_elements(By.CSS_SELECTOR, "#dreamsDiary tbody tr")
-        for dream in self.dream_entries:
-            num_of_dreams += 1
-            print(dream.text)
-        assert num_of_dreams == 10, "Dreams are not 10"
+        dream_entries = self.driver.find_elements(By.CSS_SELECTOR, "#dreamsDiary tbody tr")
+        assert len(dream_entries) == 10, "Dreams are not 10"
 
     def only_good_or_bad(self):
         print(self.driver.current_url)

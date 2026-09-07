@@ -27,9 +27,9 @@ class DreamsDiary:
 
     def only_good_or_bad(self):
         print(self.driver.current_url)
-        self.dream_types = WebDriverWait(self.driver,10).until(EC.visibility_of_all_elements_located((By.XPATH, "//table[@id='dreamsDiary']//tbody//tr//td[3]")))
-        print(self.dream_types)
-        for dream_type in self.dream_types:
+        dream_types = WebDriverWait(self.driver,10).until(EC.visibility_of_all_elements_located((By.XPATH, "//table[@id='dreamsDiary']//tbody//tr//td[3]")))
+        print(dream_types)
+        for dream_type in dream_types:
             print(dream_type.text)
             assert dream_type.text in ['Good', 'Bad'], "Dream type are neither good nor bad"
 
